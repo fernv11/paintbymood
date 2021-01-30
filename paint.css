@@ -1,0 +1,201 @@
+html {
+    background: #e6e9e9;
+    
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:#9c9c9c;
+    
+}
+
+
+.topnav .title {
+    padding: 14px 0px;
+    float: left;
+}
+
+.topnav .holdImg{
+    float: Left;
+}
+
+.topnav .links{
+    padding: 14px 30px;
+    
+}
+
+
+/* Style the topnav links */
+.topnav a{
+  padding: 14px 30px;
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: left;
+  text-decoration: none;
+}
+
+
+
+
+/*
+body .flex_contain{
+    
+    display:flex;
+    
+}
+*/
+
+
+
+body .numbers{
+     
+    margin-top: 164px;
+    margin-left: 35px;
+    width:126px;
+    position:absolute;
+    z-index: 100001;
+    pointer-events: none
+}
+
+
+
+
+
+body .music{
+    
+} 
+
+
+
+@keyframes colorize {
+    0% {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+    100% {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+}
+
+
+.imageNav img {
+    border:4px solid transparent;
+    width:200px; max-height:200px;
+    margin:10px;
+}
+.imageNav img.selected {
+    border: 5px solid green; 
+  
+}
+.toolbar {
+    z-index:100000;
+    position: sticky;  position: -webkit-sticky; 
+    top: 0;
+    background-color: rgba(100,255,255, 1);
+/*    position:absolute;*/
+    max-width:28%;
+    max-height: 0px;
+    margin-right: 50px;
+    
+   
+    
+}
+.tools {
+    display:flex;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 45px;
+    padding-top: 20px;
+    
+    
+}
+/*
+.sizerTool {
+    cursor:inherit;
+    align-self:flex-start;
+    width:200px;
+    color: black;
+    height:40px;
+   
+
+}
+*/
+.spacer {
+    flex-basis:0;
+    flex-grow:3;
+}
+.tools > * {margin:7px}
+.palette {
+    display:inline-block;
+}
+.paletteColor {
+    text-align:center; 
+    height:60px;
+    width:60px;
+    margin:5px;
+    border-radius:18%;
+    border:3px solid rgba(255,255,255,1); 
+    display:inline-block;
+    margin-left: 20px;
+ 
+
+
+}
+.paletteColor.selected {
+    border-color:black;
+    transform: scale(1.2);
+}
+
+.paletteColor.eraser { border-color: red; background-image: linear-gradient(135deg,white 43%, red 45%, red 55%, white 57%, white)}
+
+
+body .container{
+     position: sticky;  position: -webkit-sticky; 
+    max-width:800px;
+    min-width: 800px;
+  margin-top: 5%;
+   margin-left: 20%;
+    margin-right: 25%;
+    height:100%;
+    
+ 
+    
+}
+
+
+
+.canvasWrapper {
+    display:inline-block;
+    position:absolute;
+    margin-left: 30%;
+    max-width:80%;
+    min-width: 80%;
+    
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: darkgrey;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
