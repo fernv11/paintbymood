@@ -1,9 +1,9 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
+<style type="text/css">
+#header > .container {
+	max-width: none;
+}
+</style>
+
 
 html {
     background: #e6e9e9;
@@ -81,19 +81,6 @@ body .music{
 
 
 
-@-webkit-keyframes colorize {
-    0% {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
-    100% {
-        -webkit-filter: grayscale(0%);
-        filter: grayscale(0%);
-    }
-} 
-
-
-
 @keyframes colorize {
     0% {
         -webkit-filter: grayscale(100%);
@@ -129,14 +116,9 @@ body .music{
     
 }
 .tools {
-    display:-webkit-box;
-    display:-ms-flexbox;
     display:flex;
-    -webkit-box-pack:end;
-        -ms-flex-pack:end;
-            justify-content:flex-end;
-    -ms-flex-wrap:wrap;
-        flex-wrap:wrap;
+    justify-content:flex-end;
+    flex-wrap:wrap;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 45px;
@@ -156,11 +138,8 @@ body .music{
 }
 */
 .spacer {
-    -ms-flex-preferred-size:0;
-        flex-basis:0;
-    -webkit-box-flex:3;
-        -ms-flex-positive:3;
-            flex-grow:3;
+    flex-basis:0;
+    flex-grow:3;
 }
 .tools > * {margin:7px}
 .palette {
@@ -181,12 +160,10 @@ body .music{
 }
 .paletteColor.selected {
     border-color:black;
-    -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
 }
 
-.paletteColor.eraser { border-color: red; background-image: -o-linear-gradient(315deg,white 43%, red 45%, red 55%, white 57%, white); background-image: linear-gradient(135deg,white 43%, red 45%, red 55%, white 57%, white)}
+.paletteColor.eraser { border-color: red; background-image: linear-gradient(135deg,white 43%, red 45%, red 55%, white 57%, white)}
 
 
 body .container{
@@ -219,4 +196,5 @@ footer {
   background-color: darkgrey;
   color: white;
 }
+
 
