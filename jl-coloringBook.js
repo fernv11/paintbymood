@@ -24,7 +24,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                 'rgba(29, 105, 20,1)',
                 'rgba(129, 74, 25,1)',
                 'rgba(129, 38, 192,1)',
-                'rgba(160, 160, 160,1)',
+                'rgba(243, 10, 149,1)',
                 'rgba(129, 197, 122,1)',
                 'rgba(157, 175, 255,1)',
                 'rgba(41, 208, 208,1)',
@@ -91,8 +91,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                   white-space: nowrap;
                   word-wrap:normal;
                   direction: ltr;
-                  background-color: white;
-                  color: #02386E;
+                  color: white;
                   margin-top:15px;
                  
                 }
@@ -152,7 +151,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                     border-color:black;
                     transform: scale(1.2);
                 }
-                .paletteColor.eraser { border-color: red; background-image: linear-gradient(135deg,white 43%, red 45%, red 55%, white 57%, white)}
+                .paletteColor.eraser { border-color: black; background-image: linear-gradient(135deg,white 43%, black 45%, black 55%, white 57%, white)}
                 
                 .canvasWrapper {
                     display:inline-block;
