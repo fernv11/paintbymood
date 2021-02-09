@@ -18,19 +18,19 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         jQuery(this).css('display','block');
         //default colors
         this.paletteColors=[
-                'rgba(87, 87, 87,1)',
+                'rgba(0, 0, 0,1)',
                 'rgba(220, 35, 35,1)',
                 'rgba(42, 75, 215,1)',
-                'rgba(29, 105, 20,1)',
+                'rgba(85, 142, 48,1)',
                 'rgba(129, 74, 25,1)',
                 'rgba(129, 38, 192,1)',
                 'rgba(243, 10, 149,1)',
-                'rgba(129, 197, 122,1)',
-                'rgba(157, 175, 255,1)',
-                'rgba(41, 208, 208,1)',
+                'rgba(152, 204, 118,1)',
+                'rgba(220, 208, 255,1)',
+                'rgba(146, 211, 214,1)',
                 'rgba(255, 146, 51,1)',
                 'rgba(255, 238, 51,1)',
-                'rgba(233, 222, 187,1)',
+                'rgba(255, 255, 255,1)',
                 'rgba(195, 155, 119,1)',
                 'rgba(255, 205, 243,1)',
                 'white']; // last color is eraser
@@ -184,11 +184,11 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                 <div class="imageNav"></div>
                 <div class="toolbar">
                     <div class="tools">
-                        <input class="sizerTool input" type="range" min="1" max="${jQuery(this).attr('maxbrushsize') || 32}">
                         <div class="spacer"></div>
                         <button class="clearButton button"><i class="material-icons"></i></button>
                         <button class="printButton button"><i class="material-icons"></i></button>
                         <button class="saveButton  button"><i class="material-icons"></i></button>
+                        <input class="sizerTool input" type="range" min="1" max="${jQuery(this).attr('maxbrushsize') || 32}">
                     </div>
                     <div class="palette"></div>
                 </div>
@@ -200,11 +200,12 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         this.generatePalette();
         this.drawImageNav(); 
         let me = this;
-        jQuery('.sizerTool',this.shadowRoot).on('input', function(){me.updateSize()});
+//        jQuery('.sizerTool',this.shadowRoot).on('input', function(){me.updateSize()});
 //        jQuery(`.undoButton`,this.shadowRoot).on('click', function(){me.paths.pop(); me.refresh();});
         jQuery(`.clearButton`,this.shadowRoot).on('click', function(){me.paths=[];localStorage.setItem('v2:'+jQuery(me).attr('src'),JSON.stringify(me.paths));me.refresh();});
         jQuery(`.printButton`,this.shadowRoot).on('click', function() {me.print()});
         jQuery(`.saveButton`,this.shadowRoot).on('click', function() {me.save()});
+        jQuery('.sizerTool',this.shadowRoot).on('input', function(){me.updateSize()});
     
     }
 
@@ -259,7 +260,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         let me = this;
         let imageNav=jQuery('.imageNav',this.shadowRoot);
         jQuery(imageNav).empty();
-        //imageNav=jQuery(`<div style="max-width:100%">`);
+        imageNav=jQuery(`<div style="max-width:100%">`);
         let sel=0;
         let i=0;
         if (jQuery(this).attr('randomize')) sel = Math.floor(Math.random()*this.images.length);
