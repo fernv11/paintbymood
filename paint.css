@@ -15,6 +15,52 @@ html, body {
     padding: 0;
 }
 
+nav {
+  display: block;
+  background-color:#a3b6c4;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+nav li {
+    display: inline;
+	padding-bottom: 10px;
+	padding-right: 20px;
+    float: right;
+    
+}
+
+
+nav li a:hover {
+  background-color: #6c62b5;
+}
+
+
+nav a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 7px 12px;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: Brandon Grotesque;
+      }
+
+
+
+body .logo{
+	position:absolute;
+	width:200px;
+	text-align: center;
+	padding-left: 10px;
+	z-index: 2;
+	
+}
+
+
+
+/*
 .topnav {
   overflow: hidden;
   background-color: #8da3b7;
@@ -37,7 +83,7 @@ html, body {
 }
 
 
-/* Style the topnav links */
+ Style the topnav links 
 .topnav a{
   padding: 14px 30px;
   float: right;
@@ -46,23 +92,13 @@ html, body {
   text-align: left;
   text-decoration: none;
 }
-
-
-
-
-/*
-body .flex_contain{
-    
-    display:flex;
-    
-}
 */
 
 
 
 body .numbers{
      
-    padding-top: 137px;
+    padding-top: 127px;
     margin-left: 35px;
     width:50px;
     position:absolute;
@@ -72,15 +108,31 @@ body .numbers{
 
 
 
+/*
 .quote {
     color: #6c62b5;
     font-size: 50px;
     padding-bottom: 20px;
+    padding-left: 20px;
     text-align: center;
     font-family: Brandon Grotesque;
     line-height: 1.2;
 }
+*/
 
+#quoteDisplay{
+    color: #6c62b5;
+    font-size: 44px;
+    padding-top:90px;
+	padding-bottom:30px;
+    padding-left: 15%;
+	padding-right:15%;
+    text-align: center;
+    font-family: Brandon Grotesque;
+    line-height: 1.2;
+	max-width: 80%;
+    
+}
 
 
 audio {
@@ -130,8 +182,8 @@ audio {
     display:flex;
     justify-content:flex-end;
     flex-wrap:wrap;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-right: 45px;
 /*    padding-top: 2px;*/
  
@@ -144,10 +196,9 @@ audio {
     width:200px;
     color: black;
     height:40px;
-   
-
 }
 */
+
 .spacer {
     flex-basis:0;
     flex-grow:3;
@@ -181,38 +232,74 @@ button{
     background-color: #6c9c83;
     border-radius: 50%;
     border: 2.7px solid black;
-    padding: 2.3px 5.3px;
+    padding: 2.5px 5.3px;
    
 }
 
 
-.paletteColor.eraser { border-color: white; background-image:url("./images/erase.jpg")}
+.paletteColor.eraser { border-color: white; background-image:url("./images/eraser.svg")}
 
 
-body .container{
-     position: sticky;  position: -webkit-sticky; 
+main{
+    position: sticky;  position: -webkit-sticky; 
     max-width:800px;
     min-width: 800px;
-  margin-top: 5%;
-   margin-left: 20%;
-    margin-right: 25%;
+    margin-top: 3%;
+    margin-left: 16%;
     height:1050px;
-    
+    margin-right: 80%;
  
     
 }
 
 
+body .home{
+	position:sticky;
+    margin:0 auto;
+    clear:left;
+    height:auto;
+    z-index: 0;
+    text-align:center;
+	padding-top: 40px;
+  
+}
+
+
+h2{
+    color: #6c62b5;
+    font-size: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: Brandon Grotesque;
+    line-height: 1.2;
+	z-index: 3;
+    
+    
+}
+
 
 .canvasWrapper {
     display:inline-block;
     position:absolute;
-    margin-left: 30%;
-    max-width:67%;
+    margin-left: 33%;
+    max-width:85%;
     min-width: 67%;
-
     
 }
+
+
+
+.row {
+  display:flex;
+}
+
+.column {
+  flex: 10%;
+  padding: 5px;
+}
+
+
+
 
 footer {
   text-align: center;
