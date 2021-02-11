@@ -98,12 +98,14 @@ body .logo{
 
 body .numbers{
      
-    padding-top: 127px;
-    margin-left: 35px;
-    width:50px;
+    display:inline-block;
     position:absolute;
+    left: 0.44%;
+    top:11%;
     z-index: 100001;
-    pointer-events: none
+    pointer-events: none;
+
+	
 }
 
 
