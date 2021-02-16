@@ -5,6 +5,11 @@
   <meta charset = "utf-8">
   <title>Paint by Mood</title>
   <link rel="stylesheet" href="paint.css">
+  <link rel="stylesheet" href="https://use.typekit.net/tvn8iyn.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="boredMusic.js"></script>
+  <script src="randomize.js"></script>
+	
 </head>
 
     
@@ -38,7 +43,7 @@
     
     <body onload = "boredQuote()">
         
-		<div class = "logo"><img src="./images/finLogo.svg" style="width:100%"></div>
+		<div class = "logo"><img src="./images/logo2.png" style="width:100%"></div>
 		<br>
         <nav>
         <ul>
@@ -52,45 +57,47 @@
             
             
             </div>
-            <script src = "randomize.js"></script>
+          
         
         <main>
            
-            
-         <div class = "numbers">
-         <img src = "./images/numbers.svg" height="580" width="126">
-            
-        </div>    
-         <jl-coloringbook css="paint.css" randomize="true">
+        
+			
+		
+        <jl-coloringbook css="paint.css" randomize="true">
              
-          <img src="./images/bored1.png" />
+            <img src="./images/bored1.png" />
+			  
+	
+<!--
           <img src="./images/bored2.png" />
 		  <img src="./images/bored3.png" />
+-->
         
     </jl-coloringbook>
             
     
             
             
-    <br/><br><br/><br><br/><br>  
+    <div id="musicMain">
             
-			<audio src = "" controls id="audioPlayer">
-			<li><a href = "example1.mp3"></a></li>
-			<li><a href = "example2.mp3"></a></li>
-			<li><a href = "example3.mp3"></a></li>
-			
-			
-			
-			</audio>
-          
+            <div id="player">
+                <div id="musicIcons">
+                    <button id="pre" onclick="pre()"><img src="./icons/backward.svg" height="80%" width="100%"/></button>
+                    <button id="play" onclick="playOrPauseSong()"><img src="./icons/play.svg" height="80%" width="95%"/></button>
+                    <button id="next" onclick="next()"><img src="./icons/forward.svg" height="80%" width="100%"/></button>
+                </div>
+                
+                
+            </div>
+        </div>
             
-			
-        
+         
         
         
         
         </main>
-              
+        <br><br><br><br><br><br><br><br>     
        
        <footer>
       <p>Author: Fernanda Villalobos</p>
