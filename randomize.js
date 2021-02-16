@@ -1,6 +1,7 @@
 /*eslint-env browser*/
 
 
+
 var boredQuotes = [
             '"Boredom always precedes a period of great creativity." - Robert M. Pirsig',
             '"The truth is that everyone is bored, and devotes himself to cultivating habits." - Albert Camus',
@@ -86,6 +87,4 @@ function stressedQuote() {
 }
 
 
-
-
-
+ 
