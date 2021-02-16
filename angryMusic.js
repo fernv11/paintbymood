@@ -11,7 +11,7 @@
 		function playSong(){
             
             song.src = songs[currentSong];  
-			
+		
             song.play(); 	
         }
         function playOrPauseSong(){
