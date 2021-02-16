@@ -5,6 +5,10 @@
   <meta charset = "utf-8">
   <title>Paint by Mood</title>
   <link rel="stylesheet" href="paint.css">
+  <link rel="stylesheet" href="https://use.typekit.net/tvn8iyn.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="stressedMusic.js"></script>
+  <script src="randomize.js"></script>
 </head>
 
     
@@ -17,28 +21,11 @@
     
  
      
-    
-<!--
-    <div class="topnav">
    
-    <div class = "holdImg">
-    <a href = "https://placeholder.com"><img src="https://via.placeholder.com/50"></a></div>
-        
-    <div class = "title"> 
-            <a href="logo">Project Title</a>
-        </div>
-   <div class = "links">           
-  <a href="contact">Contact</a>
-  <a href="about">About</a>
-  <a href="home">Home</a>
-   </div>  
-    </div>
--->
-    
-    
+	
     <body onload = "stressedQuote()">
         
-		<div class = "logo"><img src="./images/finLogo.svg" style="width:100%"></div>
+		<div class = "logo"><img src="./images/logo2.png" style="width:100%"></div>
 		<br>
 		
         <nav>
@@ -51,20 +38,21 @@
         
         
 		
+		
+		
 		<div id= "quoteDisplay">
             
             
             </div>
-            <script src = "randomize.js"></script>
+            
+		
+
+            
 		
         <main>
             
-            
-            
-         <div class = "numbers">
-         <img src = "./images/numbers.svg" height="580" width="126">
-            
-        </div>    
+          
+           
          <jl-coloringbook css="paint.css" randomize="true">
              
           <img src="./images/stress1.png" />
@@ -75,18 +63,25 @@
     
             
             
-    <br/><br><br/><br><br/><br>  
+  		<div id="musicMain">
             
-            <audio controls>
-              <source src="./music/TheGolden.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-        
+            <div id="player">
+                <div id="musicIcons">
+                    <button id="pre" onclick="pre()"><img src="./icons/backward.svg" height="80%" width="100%"/></button>
+                    <button id="play" onclick="playOrPauseSong()"><img src="./icons/play.svg" height="80%" width="95%"/></button>
+                    <button id="next" onclick="next()"><img src="./icons/forward.svg" height="80%" width="100%"/></button>
+                </div>
+                
+                
+            </div>
+        </div>
+            
+         
         
         
         
         </main>
-              
+        <br><br><br><br><br><br><br><br>          
        
        <footer>
       <p>Author: Fernanda Villalobos</p>

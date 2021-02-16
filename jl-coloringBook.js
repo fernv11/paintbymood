@@ -38,7 +38,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         this.paths = [];
         let me=this;
         this.slots=jQuery(`<div class="slots" style="display:none"><slot></slot></div>`).appendTo(this.shadowRoot)
-    
+    	
 
         this.slots.on('slotchange', function()
             {
@@ -153,6 +153,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                 }
                 .paletteColor.eraser { border-color: black; background-image: linear-gradient(135deg,white 43%, black 45%, black 55%, white 57%, white)}
                 
+
                 .canvasWrapper {
                     display:inline-block;
                     position:relative;
@@ -230,6 +231,41 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         {
             className='';
             if (i==(this.paletteColors.length-1)) className="eraser";
+			
+			if (i==(this.paletteColors.length-2)) className="fifteen";
+			
+			if (i==(this.paletteColors.length-3)) className="fourteen";
+			
+			if (i==(this.paletteColors.length-4)) className="thirteen";
+			
+			if (i==(this.paletteColors.length-5)) className="twelve";
+			
+			if (i==(this.paletteColors.length-6)) className="eleven";
+			
+			if (i==(this.paletteColors.length-7)) className="ten";
+			
+			if (i==(this.paletteColors.length-8)) className="nine";
+			
+			if (i==(this.paletteColors.length-9)) className="eight";
+			
+			if (i==(this.paletteColors.length-10)) className="seven";
+			
+			if (i==(this.paletteColors.length-11)) className="six";
+			
+			if (i==(this.paletteColors.length-12)) className="five";
+			
+			if (i==(this.paletteColors.length-13)) className="four";
+			
+			if (i==(this.paletteColors.length-14)) className="three";
+			
+			if (i==(this.paletteColors.length-15)) className="two";
+			
+			if (i==(this.paletteColors.length-16)) className="one";
+			
+	
+			
+			
+			
             let me=this;
 
             jQuery(`<div class="paletteColor ${className}  color${i}" style="background-color:${value};"><i class="material-icons"></i></div>`).data('color',i)
@@ -241,7 +277,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             }).appendTo(palette);
              i++;
         }
-
+		
 
     }
 
@@ -300,7 +336,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         
         this.ctx=this.canvas[0].getContext('2d');
         this.activeCtx=this.activeCanvas[0].getContext('2d');
-        //jQuery(img).replaceWith(this.wrapper);
+//        jQuery(img).replaceWith(this.wrapper);
         this.img.off('load').on('load', function() {
             me.sizeCanvas();
             let x = window.localStorage.getItem('v2:'+jQuery(this).attr('src'));
