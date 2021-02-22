@@ -5,6 +5,17 @@ html {
 }
 
 
+<style>
+  @import url("https://use.typekit.net/tvn8iyn.css");
+ 	
+</style>
+
+
+svg{
+	font-family: brandon-grotesque, sans-serif;
+}
+
+
 body{
  	
   	width: 100%;
@@ -16,20 +27,22 @@ nav {
   background-color:#a3b6c4;
   overflow: hidden;
   z-index: 1;
+  margin-top: 5px;
+  
 }
 
 
 nav li {
     display: inline;
-	padding-bottom: 10px;
 	padding-right: 20px;
     float: right;
-    
+    text-align: center;
 }
 
 
 nav li a:hover {
-  background-color: #6c62b5;
+  color: #6c62b5;
+  
 }
 
 
@@ -37,10 +50,12 @@ nav a {
         float: left;
         color: black;
         text-align: center;
-        padding: 7px 12px;
+		padding-top: 5px;
+        padding-bottom: 15px;
+		padding-right: 20px;
         text-decoration: none;
         font-size: 18px;
-        font-family: Brandon Grotesque;
+        font-family: brandon-grotesque, sans-serif;
       }
 
 
@@ -50,7 +65,9 @@ body .logo{
 	width:150px;
 	text-align: center;
 	padding-left: 10px;
+	padding-top: 5px;
 	z-index: 2;
+	font-family: brandon-grotesque, sans-serif;
 	
 	
 }
@@ -67,7 +84,7 @@ body .logo{
     padding-left: 15%;
 	padding-right:15%;
     text-align: center;
-    font-family: Brandon Grotesque;
+    font-family: brandon-grotesque, sans-serif;
     line-height: 1.2;
 	max-width: 80%;
     
@@ -226,17 +243,19 @@ main{
     height:auto;
     z-index: 0;
     text-align:center;
-	padding-top: 40px;
+	padding-top: 45px;
   
 }
 
 
+
+
 h2{
     color: #6c62b5;
-    font-size: 50px;
+    font-size: 55px;
     padding-bottom: 20px;
     text-align: center;
-    font-family: Brandon Grotesque;
+    font-family: brandon-grotesque, sans-serif;
     line-height: 1.2;
 	z-index: 3;
     
@@ -258,8 +277,8 @@ h2{
 
 
 .row {
-	margin-top: 5%;
-  display:flex;
+	margin-top: 6%;
+  	display:flex;
 }
 
 .column {
@@ -346,6 +365,13 @@ footer {
 	transform: translate(-50%,-50%);
 	z-index:100001;
 	pointer-events: none;
+}
+
+
+.styleFoot p{
+	padding-top: 20px;
+	font-family: brandon-grotesque, sans-serif;
+	color: #6c62b5;
 }
 
 
