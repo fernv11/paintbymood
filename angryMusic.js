@@ -2,16 +2,18 @@
 
 	
 
-		var songs = ["./music/moodAngry/angry1.mp3","./music/moodAngry/angry2.mp3","./music/moodAngry/angry3.mp3","./music/moodAngry/angry4.mp3","./music/moodAngry/angry5.mp3","./music/moodAngry/angry6.mp3","./music/moodAngry/angry7.mp3","./music/moodAngry/angry8.mp3","./music/moodAngry/angry9.mp3","./music/moodAngry/angry10.mp3","./music/moodAngry/angry11.mp3","./music/moodAngry/angry12.mp3","./music/moodAngry/angry13.mp3","./music/moodAngry/angry14.mp3","./music/moodAngry/angry15.mp3","./music/moodAngry/angry16.mp3","./music/moodAngry/angry17.mp3","./music/moodAngry/angry18.mp3","./music/moodAngry/angry19.mp3","./music/moodAngry/angry20.mp3"];
+		var songs = ["./music/moodAngry/No.1 A Minor Waltz - Esther Abrami.mp3","./music/moodAngry/Maryandra's Waltz - Jesse Gallagher.mp3","./music/moodAngry/Dolphin-esque - Godmode.mp3","./music/moodAngry/No.10 _A New Beginning - Esther Abrami.mp3","./music/moodAngry/White River - Aakash Gandhi.mp3","./music/moodAngry/Heavenly - Aakash Gandhi.mp3","./music/moodAngry/Dreamland - Aakash Gandhi.mp3","./music/moodAngry/No.9_Esther_s Waltz - Esther Abrami 1.mp3","./music/moodAngry/Unrequited - Asher Fulero.mp3","./music/moodAngry/Underwater Exploration - Godmode.mp3","./music/moodAngry/Pastorale - Joel Cummins.mp3","./music/moodAngry/No.7 Alone With My Thoughts - Esther Abrami.mp3","./music/moodAngry/Mongrel Dance - Dan Bodan.mp3","./music/moodAngry/T'as où les vaches_ - Dan Bodan.mp3","./music/moodAngry/The Two Seasons - Dan Bodan.mp3","./music/moodAngry/Butterflies In Love - Sir Cubworth.mp3","./music/moodAngry/Kiss the Sky - Aakash Gandhi.mp3","./music/moodAngry/Lifting Dreams - Aakash Gandhi.mp3","./music/moodAngry/Bucolic Acrylic - Dan Bodan.mp3","./music/moodAngry/No.5 The Day I Met Her - Esther Abrami.mp3","./music/moodAngry/Simple Sonata - Sir Cubworth.mp3","./music/moodAngry/Night Snow - Asher Fulero.mp3","./music/moodAngry/Shattered Paths - Aakash Gandhi.mp3","./music/moodAngry/Eternal Garden - Dan Henig.mp3","./music/moodAngry/Somnia III - Reed Mathis.mp3","./music/moodAngry/Gamela - E's Jammy Jams.mp3","./music/moodAngry/Pure Potentiality - Benjamin Martins.mp3","./music/moodAngry/Spenta Mainyu - Jesse Gallagher.mp3","./music/moodAngry/Just Stay - Aakash Gandhi.mp3","./music/moodAngry/The Three Elements - I Think I Can Help You.mp3"];
 
 		var randomNumber = Math.floor(Math.random()*(songs.length));
         var song = new Audio();
         var currentSong = randomNumber;    
-        window.onload = playSong;   
+        var songTitle = document.getElementById("songTitle");
 		function playSong(){
             
             song.src = songs[currentSong];  
-		
+			var title = songs[currentSong].replace(/^.*[\\\/]/, '');
+			songTitle.textContent= title;
+			
             song.play(); 	
         }
         function playOrPauseSong(){
@@ -33,7 +35,7 @@
         });
         function next(){
             currentSong++;
-            if(currentSong > 19){
+            if(currentSong > 29){
                 currentSong = 0;
             }
             playSong();
@@ -45,7 +47,7 @@
         function pre(){
             currentSong--;
             if(currentSong < 0){
-                currentSong = 19;
+                currentSong = 29;
             }
             playSong();
             $("#play img").attr("src","./icons/pause2.svg");  

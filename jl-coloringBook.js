@@ -18,21 +18,26 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         jQuery(this).css('display','block');
         //default colors
         this.paletteColors=[
-                'rgba(0, 0, 0,1)',
-                'rgba(220, 35, 35,1)',
-                'rgba(42, 75, 215,1)',
-                'rgba(85, 142, 48,1)',
-                'rgba(129, 74, 25,1)',
-                'rgba(129, 38, 192,1)',
-                'rgba(243, 10, 149,1)',
-                'rgba(152, 204, 118,1)',
-                'rgba(220, 208, 255,1)',
-                'rgba(146, 211, 214,1)',
-                'rgba(255, 146, 51,1)',
-                'rgba(255, 238, 51,1)',
                 'rgba(255, 255, 255,1)',
+                'rgba(232, 230, 232,1)',
+				'rgba(234, 227, 193,1)',
+			    'rgba(255, 238, 79,1)',
                 'rgba(195, 155, 119,1)',
-                'rgba(255, 205, 243,1)',
+			    'rgba(129, 74, 28,1)',
+                'rgba(243, 145, 61,1)',
+                'rgba(246, 204, 241,1)',
+                'rgba(236, 67, 149,1)',
+                'rgba(220, 51, 46,1)',
+                'rgba(163, 5, 92,1)',
+				'rgba(220, 208, 255,1)',
+				'rgba(137, 81, 191,1)',
+                'rgba(76, 46, 142,1)',
+                'rgba(140, 190, 224,1)',
+                'rgba(42, 75, 215,1)',
+                'rgba(0, 169, 157,1)',
+                'rgba(152, 204, 118,1)',
+				'rgba(10, 119, 23,1)',
+                'rgba(0, 0, 0,1)',
                 'white']; // last color is eraser
         this.dragging=false;
         this.paths = [];
@@ -83,7 +88,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                   font-family: 'Material Icons';
                   font-weight: normal;
                   font-style: normal;
-                  font-size: 25px;
+                  font-size: 28px;
                   line-height: 0;
                   letter-spacing: normal;
                   text-transform: none;
@@ -92,7 +97,8 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                   word-wrap:normal;
                   direction: ltr;
                   color: white;
-                  margin-top:15px;
+                  margin-top:17px;
+				 
                  
                 }
                 .wrapper { width:100%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
@@ -121,7 +127,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                     max-width:100%;
                 }
                 .sizerTool {
-                     cursor:inherit;
+                    cursor:inherit;
                     align-self:flex-start;
                     width:200px;
                     background-color: black;
@@ -132,7 +138,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                     flex-basis:0;
                     flex-grow:1;
                 }
-                .tools > * {margin:2px}
+                .tools > * {margin:4px}
                 .palette {
                     display:inline-block;
                 }
@@ -184,14 +190,19 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             <div class="wrapper">
                 <div class="imageNav"></div>
                 <div class="toolbar">
-                    <div class="tools">
+                 
+					 <input class="sizerTool input" type="range" min="1" max="${jQuery(this).attr('maxbrushsize') || 32}">
+                    <div class="palette"></div>
+					 <div class="tools">
                         <div class="spacer"></div>
                         <button class="clearButton button"><i class="material-icons"></i></button>
                         <button class="printButton button"><i class="material-icons"></i></button>
                         <button class="saveButton  button"><i class="material-icons"></i></button>
-                        <input class="sizerTool input" type="range" min="1" max="${jQuery(this).attr('maxbrushsize') || 32}">
+                     
                     </div>
-                    <div class="palette"></div>
+
+
+
                 </div>
                 <div class="canvasWrapper"></div>
             </div>
@@ -232,35 +243,45 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             className='';
             if (i==(this.paletteColors.length-1)) className="eraser";
 			
-			if (i==(this.paletteColors.length-2)) className="fifteen";
+			if (i==(this.paletteColors.length-2)) className="twenty";
 			
-			if (i==(this.paletteColors.length-3)) className="fourteen";
+			if (i==(this.paletteColors.length-3)) className="nineteen";
 			
-			if (i==(this.paletteColors.length-4)) className="thirteen";
+			if (i==(this.paletteColors.length-4)) className="eighteen";
 			
-			if (i==(this.paletteColors.length-5)) className="twelve";
+			if (i==(this.paletteColors.length-5)) className="seventeen";
 			
-			if (i==(this.paletteColors.length-6)) className="eleven";
+			if (i==(this.paletteColors.length-6)) className="sixteen";
 			
-			if (i==(this.paletteColors.length-7)) className="ten";
+			if (i==(this.paletteColors.length-7)) className="fifteen";
 			
-			if (i==(this.paletteColors.length-8)) className="nine";
+			if (i==(this.paletteColors.length-8)) className="fourteen";
 			
-			if (i==(this.paletteColors.length-9)) className="eight";
+			if (i==(this.paletteColors.length-9)) className="thirteen";
 			
-			if (i==(this.paletteColors.length-10)) className="seven";
+			if (i==(this.paletteColors.length-10)) className="twelve";
 			
-			if (i==(this.paletteColors.length-11)) className="six";
+			if (i==(this.paletteColors.length-11)) className="eleven";
 			
-			if (i==(this.paletteColors.length-12)) className="five";
+			if (i==(this.paletteColors.length-12)) className="ten";
 			
-			if (i==(this.paletteColors.length-13)) className="four";
+			if (i==(this.paletteColors.length-13)) className="nine";
 			
-			if (i==(this.paletteColors.length-14)) className="three";
+			if (i==(this.paletteColors.length-14)) className="eight";
 			
-			if (i==(this.paletteColors.length-15)) className="two";
+			if (i==(this.paletteColors.length-15)) className="seven";
 			
-			if (i==(this.paletteColors.length-16)) className="one";
+			if (i==(this.paletteColors.length-16)) className="six";
+			
+			if (i==(this.paletteColors.length-17)) className="five";
+			
+			if (i==(this.paletteColors.length-18)) className="four";
+			
+			if (i==(this.paletteColors.length-19)) className="three";
+			
+			if (i==(this.paletteColors.length-20)) className="two";
+			
+			if (i==(this.paletteColors.length-21)) className="one";
 			
 	
 			

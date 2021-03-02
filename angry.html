@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="paint.css">
   <link rel="stylesheet" href="https://use.typekit.net/tvn8iyn.css">
   <script src="jquery-3.2.1.min.js"></script>
-  <script src="angryMusic.js"></script>
-  <script src="randomize.js"></script>
+  
+  
 	
 
 </head>
@@ -39,11 +39,17 @@
         
         
 
-		<div id= "quoteDisplay">
+		<div class = "fade-in" id= "quoteDisplay">
             
             
-            </div>
-    
+        </div>
+    	<script src="randomize.js" type="text/javascript" ></script>
+		<script>	
+		angryQuote();
+		</script>
+		
+		
+		
    
         <main>
 	
@@ -56,6 +62,7 @@
           <img src="./images/angry2.png" />
 		  <img src="./images/angry3.png" />
 		  <img src="./images/angry4.png" />
+		  
         	
     	 </jl-coloringbook>
 			
@@ -65,6 +72,7 @@
 		<div id="musicMain">
             
             <div id="player">
+				<div id="songTitle"> </div>
                 <div id="musicIcons">
                     <button id="pre" onclick="pre()"><img src="./icons/backward.svg" height="80%" width="100%"/></button>
                     <button id="play" onclick="playOrPauseSong()"><img src="./icons/play.svg" height="80%" width="95%"/></button>
@@ -75,9 +83,15 @@
             </div>
         </div>
 		
+			
+		 <div class = "brush">
+         <img src = "./images/brush.svg" width="25%"/>  
+     	</div>
+     		
+			
 		</main>
 		
-       <br><br><br><br><br><br>
+       <br><br><br><br>
        <footer>
 	   <div class = "styleFoot">
 	  <p>Author: Fernanda Villalobos</p>
@@ -86,7 +100,7 @@
 	</footer>  
       
 	
-	 
+	 <script src="angryMusic.js"></script>
     </body>
     
 

@@ -2,15 +2,17 @@
 
 	
 
-		var songs = ["./music/moodBored/bored1.mp3","./music/moodBored/bored2.mp3","./music/moodBored/bored3.mp3","./music/moodBored/bored4.mp3","./music/moodBored/bored5.mp3","./music/moodBored/bored6.mp3","./music/moodBored/bored7.mp3","./music/moodBored/bored8.mp3","./music/moodBored/bored9.mp3","./music/moodBored/bored10.mp3","./music/moodBored/bored11.mp3","./music/moodBored/bored12.mp3","./music/moodBored/bored13.mp3","./music/moodBored/bored14.mp3","./music/moodBored/bored15.mp3","./music/moodBored/bored16.mp3","./music/moodBored/bored17.mp3","./music/moodBored/bored18.mp3","./music/moodBored/bored19.mp3"];
+		var songs = ["./music/moodBored/A Face in a Cloud - Nathan Moore.mp3","./music/moodBored/Adrift - ELPHNT.mp3","./music/moodBored/Alone - Emmit Fenn.mp3","./music/moodBored/Auckland - VYEN.mp3","./music/moodBored/Down by the Riverside - E's Jammy Jams.mp3","./music/moodBored/Before I Go - RKVC.mp3","./music/moodBored/Digital Memories - Unicorn Heads.mp3","./music/moodBored/Borderless - Aakash Gandhi.mp3","./music/moodBored/Dulcinea - Steve Adams.mp3","./music/moodBored/First Time Experience - Nate Blaze.mp3","./music/moodBored/Hopeful Freedom - Asher Fulero.mp3","./music/moodBored/Jindupe - Lauren Duski.mp3","./music/moodBored/Mosswood - Steve Adams.mp3","./music/moodBored/Muffled Tines - roljui.mp3","./music/moodBored/Past Life - JVNA.mp3","./music/moodBored/No.4 Piano Journey - Esther Abrami.mp3","./music/moodBored/Please - Wayne Jones.mp3","./music/moodBored/Rene's Song - Loopop.mp3","./music/moodBored/Rainy Day - Matt Harris.mp3","./music/moodBored/Rolling Hills - Sir Cubworth.mp3","./music/moodBored/Run Until Your Wings Grow - Late Night Feeler.mp3","./music/moodBored/Silky Smooth - Audio Hertz.mp3","./music/moodBored/Spring Migration - The Great North Sound Society.mp3","./music/moodBored/Spruce Tree - Ashley Shadow.mp3","./music/moodBored/No.10 _A New Beginning - Esther Abrami.mp3","./music/moodBored/Summer of 1984 - RKVC.mp3","./music/moodBored/This Little Light of Mine - E's Jammy Jams.mp3","./music/moodBored/We March Together - Patrick Patrikios.mp3","./music/moodBored/When We Found The Horizon - Late Night Feeler.mp3","./music/moodBored/Wind Riders - Asher Fulero.mp3"];
 
 		var randomNumber = Math.floor(Math.random()*(songs.length));
         var song = new Audio();
         var currentSong = randomNumber;    
-        window.onload = playSong;   
+        var songTitle = document.getElementById("songTitle");
 		function playSong(){
             
-            song.src = songs[currentSong];  
+            song.src = songs[currentSong]; 
+			var title = songs[currentSong].replace(/^.*[\\\/]/, '');
+			songTitle.textContent= title;
             song.play(); 	
         }
         function playOrPauseSong(){
@@ -32,7 +34,7 @@
         });
         function next(){
             currentSong++;
-            if(currentSong > 18){
+            if(currentSong > 29){
                 currentSong = 0;
             }
             playSong();
@@ -44,7 +46,7 @@
         function pre(){
             currentSong--;
             if(currentSong < 0){
-                currentSong = 18;
+                currentSong = 29;
             }
             playSong();
             $("#play img").attr("src","./icons/pause2.svg");  

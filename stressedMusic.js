@@ -2,15 +2,18 @@
 
 	
 		
-		var songs = ["./music/moodStress/stress1.mp3","./music/moodStress/stress2.mp3","./music/moodStress/stress3.mp3","./music/moodStress/stress4.mp3","./music/moodStress/stress5.mp3","./music/moodStress/stress6.mp3","./music/moodStress/stress7.mp3","./music/moodStress/stress8.mp3","./music/moodStress/stress9.mp3","./music/moodStress/stress10.mp3","./music/moodStress/stress11.mp3","./music/moodStress/stress12.mp3","./music/moodStress/stress13.mp3","./music/moodStress/stress14.mp3","./music/moodStress/stress15.mp3","./music/moodStress/stress16.mp3","./music/moodStress/stress17.mp3","./music/moodStress/stress18.mp3","./music/moodStress/stress19.mp3","./music/moodStress/stress20.mp3","./music/moodStress/stress21.mp3","./music/moodStress/stress22.mp3","./music/moodStress/stress23.mp3","./music/moodStress/stress24.mp3","./music/moodStress/stress25.mp3","./music/moodStress/stress26.mp3","./music/moodStress/stress27.mp3"];
+		var songs = ["./music/moodStress/Amber - VYEN.mp3","./music/moodStress/Ammil - The Tides.mp3","./music/moodStress/Aurora Borealis Expedition - Asher Fulero.mp3","./music/moodStress/On the Island - Godmode.mp3","./music/moodStress/Cocktail Hour - Aaron Kenny.mp3","./music/moodStress/Dolphin-esque - Godmode.mp3","./music/moodStress/Dream Escape - The Tides.mp3","./music/moodStress/Eternal Garden - Dan Henig.mp3","./music/moodStress/Frolic - E's Jammy Jams.mp3","./music/moodStress/In 3 - Godmode.mp3","./music/moodStress/In the Temple Garden - Aaron Kenny.mp3","./music/moodStress/Interplanetary Alignment - NoMBe.mp3","./music/moodStress/Kiss the Sky - Aakash Gandhi.mp3","./music/moodStress/Lifting Dreams - Aakash Gandhi.mp3","./music/moodStress/Moonrise - Futuremono.mp3","./music/moodStress/Nebular Focus - Dan Henig.mp3","./music/moodStress/Pastorale - Joel Cummins.mp3","./music/moodStress/Peaceful Mind - Astron.mp3","./music/moodStress/Seclusion - The Tides.mp3","./music/moodStress/Seventh Heaven - E's Jammy Jams.mp3","./music/moodStress/Sleepy Hollow - E's Jammy Jams.mp3","./music/moodStress/Somnia III - Reed Mathis.mp3","./music/moodStress/Somnolent - The Tides.mp3","./music/moodStress/State Drive - VYEN.mp3","./music/moodStress/Sunrise in Paris - Dan Henig.mp3","./music/moodStress/The Joy Definitive - pATCHES.mp3","./music/moodStress/The Two Seasons - Dan Bodan.mp3","./music/moodStress/Underwater Exploration - Godmode.mp3","./music/moodStress/Whispering Stream - E's Jammy Jams.mp3","./music/moodStress/White River - Aakash Gandhi.mp3"];
 
 		var randomNumber = Math.floor(Math.random()*(songs.length));
         var song = new Audio();
-        var currentSong = randomNumber;    
-        window.onload = playSong;   
+        var currentSong = randomNumber; 
+		var songTitle = document.getElementById("songTitle");
+      
 		function playSong(){
         
-            song.src = songs[currentSong];  
+            song.src = songs[currentSong];
+			var title = songs[currentSong].replace(/^.*[\\\/]/, '');
+			songTitle.textContent= title;
             song.play(); 	
 		
         }
@@ -33,7 +36,7 @@
         });
         function next(){
             currentSong++;
-            if(currentSong > 26){
+            if(currentSong > 29){
                 currentSong = 0;
             }
             playSong();
@@ -45,7 +48,7 @@
         function pre(){
             currentSong--;
             if(currentSong < 0){
-                currentSong = 26;
+                currentSong = 29;
             }
             playSong();
             $("#play img").attr("src","./icons/pause2.svg");  
