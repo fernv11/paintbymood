@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang = "en">
+
+<head>
+  <meta charset = "utf-8">
+  <title>Paint by Mood</title>
+  <link rel="stylesheet" href="paint.css">
+  <link rel="stylesheet" href="https://use.typekit.net/tvn8iyn.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  
+
+	
+</head>
+
+    
+    
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="../jl-coloringBook.js"></script>
+    
+ 
+     
+    
+    
+    <body onload = "boredQuote()">
+    
+		<div class = "logo"><img src="./images/logo2.png" style="width:95%"></div>
+		<br>
+        <nav>
+        <ul>
+          <li><a href ="#">Contact</a></li>
+          <li><a href ="#">About</a></li>
+          <li><a href ="index.html">Home</a></li>
+        </ul>
+        </nav>
+        
+		<div class = "fade-in" id= "quoteDisplay">
+            
+            
+            </div>
+          
+		 <script src="randomize.js" type="text/javascript" ></script>
+		<script>	
+		boredQuote();
+		</script> 
+		
+		
+        
+        <main>
+           
+        
+			
+		
+        <jl-coloringbook css="paint.css" randomize="true">
+             
+            <img src="./images/bored1.png" />
+			<img src="./images/bored2.png" />
+		  	<img src="./images/bored3.png" />
+			<img src="./images/bored4.png" />
+        
+    </jl-coloringbook>
+            
+    
+     
+            
+    <div id="musicMain">
+            
+            <div id="player">
+				<div id="songTitle"> </div>
+                <div id="musicIcons">
+                    <button id="pre" onclick="pre()"><img src="./icons/backward.svg" height="80%" width="100%"/></button>
+                    <button id="play" onclick="playOrPauseSong()"><img src="./icons/play.svg" height="80%" width="95%"/></button>
+                    <button id="next" onclick="next()"><img src="./icons/forward.svg" height="80%" width="100%"/></button>
+                </div>
+                
+                
+            </div>
+        </div>
+            
+         
+         <div class = "brush">
+         <img src = "./images/brush.svg" width="25%"/>  
+     	</div>
+     
+        
+        
+        </main>
+        <br><br><br><br>   
+       
+       <footer>
+	   <div class = "styleFoot">
+	  <p>Author: Fernanda Villalobos</p>
+	  <br>
+	  </div>	
+	</footer>  
+     
+	<script src="boredMusic.js"></script>	
+    </body>
+    
+
+    
+    
+</html>
+
+  
