@@ -577,7 +577,13 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             let path = this.paths[i];
             if (path.length<1) continue;
             if (!path[0].c) { path[0].c=0;}
-            ctx.strokeStyle = `rgba(${this.paletteColors[path[0].c]}, 0.8)`;
+			
+            ctx.strokeStyle = 'rgba(255, 255, 255,0)';
+			this.clearActivePath()
+			
+//			`rgba(${this.paletteColors[path[0].c]}, 0.8)`;
+			
+			
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
             ctx.lineWidth = path[0].s * (this.img[0].naturalWidth/this.img.width());
@@ -613,7 +619,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         context.arc(16, 16, size/2, 0, 2 * Math.PI, false);
         context.fillStyle = this.paletteColors[this.color];
         context.fill();
-        context.strokeStyle='black'
+        context.strokeStyle='white'
         context.strokeWidth=2;
         context.stroke();
         context.strokeStyle='rgba(0, 0, 0, 0.5)';
