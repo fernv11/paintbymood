@@ -609,7 +609,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
 
     setCursor()
     {
-        let size = this.sizer.val();
+        let const size = this.sizer.val();//
         if (size < 2) size=2;
         if (size > 32) size=32;
         let canvas=jQuery(`<canvas height="32" width="32"/>`);
@@ -630,7 +630,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         context.moveTo(16,0)
         context.lineTo(16,32)
         context.stroke();
-        let url=canvas[0].toDataURL();
+        let const url=canvas[0].toDataURL();
         this.wrapper.css('cursor', `url(${url}) 16 16, pointer`);
     }
 });
