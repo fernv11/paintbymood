@@ -191,7 +191,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                 <div class="imageNav"></div>
                 <div class="toolbar">
                  
-					 <input class="sizerTool input" type="range" min="1" max="${jQuery(this).attr('maxbrushsize') || 32}">
+					 <input class="sizerTool" type="range" min="1" max="32">
                     <div class="palette"></div>
 					 <div class="tools">
                         <div class="spacer"></div>
@@ -208,6 +208,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             </div>
         `).appendTo(this.shadowRoot);
         this.sizer=jQuery('.sizerTool',this.shadowRoot);
+		
         this.wrapper=jQuery('.wrapper',this.shadowRoot);
         this.generatePalette();
         this.drawImageNav(); 
@@ -601,34 +602,37 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             ctx.stroke();
         }
     }
-   
+    
     updateSize()
     {
         this.setCursor();
     }
-
+    
     setCursor()
-    {
-        let size = this.sizer.val();//
+    {	
+		
+        let size = this.sizer.val();
+		
         if (size < 2) size=2;
         if (size > 32) size=32;
         let canvas=jQuery(`<canvas height="32" width="32"/>`);
+		
         let context = canvas[0].getContext('2d');
 
         context.beginPath();
         context.arc(16, 16, size/2, 0, 2 * Math.PI, false);
         context.fillStyle = this.paletteColors[this.color];
         context.fill();
-        context.strokeStyle='white'
+        context.strokeStyle='white';
         context.strokeWidth=2;
         context.stroke();
         context.strokeStyle='rgba(0, 0, 0, 0.5)';
         context.strokeWidth=2;
         context.beginPath();
-        context.moveTo(0,16)
-        context.lineTo(32,16)
-        context.moveTo(16,0)
-        context.lineTo(16,32)
+        context.moveTo(0,16);
+        context.lineTo(32,16);
+        context.moveTo(16,0);
+        context.lineTo(16,32);
         context.stroke();
         let url=canvas[0].toDataURL();
         this.wrapper.css('cursor', `url(${url}) 16 16, pointer`);
