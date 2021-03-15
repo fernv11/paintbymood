@@ -1,5 +1,7 @@
 "use strict";
-/*
+/*	
+	original
+	
     Copyright 2020 Joseph Love, primoweb.com, joe@primoweb.com
     This component is free to use provided that this notice is not altered or removed.
     Donations are accepted to continue the development of more open source projects. Paypal address: joe@primoweb.com
@@ -18,7 +20,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         jQuery(this).css('display','block');
         //default colors
         this.paletteColors=[
-                'rgba(255, 255, 255,1)',
+                'rgba(255, 255, 254,1)',
                 'rgba(232, 230, 232,1)',
 				'rgba(234, 227, 193,1)',
 			    'rgba(255, 238, 79,1)',
@@ -101,7 +103,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
 				 
                  
                 }
-                .wrapper { width:100%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+                .wrapper { width:800px; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
                 
                 /*default theme*/
                 .imageNav img {
@@ -191,7 +193,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                 <div class="imageNav"></div>
                 <div class="toolbar">
                  
-					 <input class="sizerTool" type="range" min="1" max="32">
+					 <input class="sizerTool" type="range" min="4" max="32" step="7">
                     <div class="palette"></div>
 					 <div class="tools">
                         <div class="spacer"></div>
@@ -207,23 +209,35 @@ customElements.define('jl-coloringbook', class extends HTMLElement
                 <div class="canvasWrapper"></div>
             </div>
         `).appendTo(this.shadowRoot);
-        this.sizer=jQuery('.sizerTool',this.shadowRoot);
-		
+        
+		this.sizer=jQuery('.sizerTool',this.shadowRoot);
         this.wrapper=jQuery('.wrapper',this.shadowRoot);
+		this.canvasWrapper = jQuery('.canvasWrapper',this.shadowRoot);
         this.generatePalette();
         this.drawImageNav(); 
         let me = this;
-//        jQuery('.sizerTool',this.shadowRoot).on('input', function(){me.updateSize()});
+       
 //        jQuery(`.undoButton`,this.shadowRoot).on('click', function(){me.paths.pop(); me.refresh();});
         jQuery(`.clearButton`,this.shadowRoot).on('click', function(){me.paths=[];localStorage.setItem('v2:'+jQuery(me).attr('src'),JSON.stringify(me.paths));me.refresh();});
         jQuery(`.printButton`,this.shadowRoot).on('click', function() {me.print()});
         jQuery(`.saveButton`,this.shadowRoot).on('click', function() {me.save()});
-        jQuery('.sizerTool',this.shadowRoot).on('input', function(){me.updateSize()});
+		
+		jQuery('.paletteColor',this.shadowRoot).on('click', function(){me.updateSize()});
+		jQuery('.sizerTool',this.shadowRoot).on('input', function(){me.updateSize()});
+	
+						  
     
     }
+	
+	
+	
+	
 
     generatePalette()
-    {
+    {	
+//		jQuery('.sizerTool',this.shadowRoot).on('mouseup', function(){me.updateSize()})
+		
+		
         let paletteColors=[];
         let list= jQuery('slot',this.slots)[0].assignedElements();
         
@@ -235,10 +249,11 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             }
         }
         if (paletteColors.length) this.paletteColors=paletteColors;
-      
+      	
         let palette=jQuery(`.palette`,this.shadowRoot);
         let i=0;
         let className='';
+		
         for (let value of this.paletteColors)
         {
             className='';
@@ -293,19 +308,23 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             jQuery(`<div class="paletteColor ${className}  color${i}" style="background-color:${value};"><i class="material-icons"></i></div>`).data('color',i)
                 .on('click',function(){
                 me.color=jQuery(this).data('color');
-                me.setCursor();
+//				me.setCursor();
                 jQuery(this).parent().children().removeClass('selected');
                 jQuery(this).addClass('selected');
+				
             }).appendTo(palette);
              i++;
         }
+		
+			
+		
 		
 
     }
 
     drawImageNav()
     {
-
+		
         this.images=[];
         let list= jQuery('slot',this.slots)[0].assignedElements();
         for (const x of list)
@@ -334,6 +353,8 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             i++;
             }
         } else this.selectImage(jQuery(`<img src="${this.images[0]}" />`));
+		
+		 
     }
 
 
@@ -347,7 +368,8 @@ customElements.define('jl-coloringbook', class extends HTMLElement
     }
 
     drawCanvas()
-    {
+    {	
+		
         let me =this;
         //jQuery(this.wrapper).detach();
         //this.img=jQuery(jQuery(this.slots)[0]);
@@ -360,6 +382,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         this.activeCtx=this.activeCanvas[0].getContext('2d');
 //        jQuery(img).replaceWith(this.wrapper);
         this.img.off('load').on('load', function() {
+			
             me.sizeCanvas();
             let x = window.localStorage.getItem('v2:'+jQuery(this).attr('src'));
             if (x){
@@ -384,12 +407,13 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             .on('touchstart', function(e) {return me.touchStart(e);})
             .on('touchend', function(e) {return me.touchEnd(e);})
             .on('touchmove', function(e) {return me.touchMove(e);})
-        
+      
 
     }
 
     touchStart(oe)
     {   
+		
         let e= oe.originalEvent;
         
         let touch = e.touches[0];
@@ -401,13 +425,14 @@ customElements.define('jl-coloringbook', class extends HTMLElement
     }
     touchEnd(oe)
     {
-
+		
         let e=oe.originalEvent;
         this.mouseUp(e);
 
     }
     touchMove(oe)
     {   
+		
         let e= oe.originalEvent;
         if (e.touches.length >=2) return true; // allow 2 finger gestures through
         e.preventDefault();
@@ -541,7 +566,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
 
     drawActivePath(saveToCanvas=false)
     {
-
+	
         this.clearActivePath();
         let ctx;
         let path=this.paths[this.paths.length-1];
@@ -564,7 +589,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement
             for (let j=1; j<path.length; ++j)
                 ctx.lineTo(path[j].x, path[j].y);
             ctx.stroke();
-        
+        	
     }
 
     refresh()
@@ -611,17 +636,23 @@ customElements.define('jl-coloringbook', class extends HTMLElement
     setCursor()
     {	
 		
+		
+		//2,11,17,24,32
+		
         let size = this.sizer.val();
 		
-        if (size < 2) size=2;
-        if (size > 32) size=32;
-        let canvas=jQuery(`<canvas height="32" width="32"/>`);
+		
+		
+        let canvas=jQuery(`<canvas height="1" width="1"/>`);
 		
         let context = canvas[0].getContext('2d');
 
+		
         context.beginPath();
+		
         context.arc(16, 16, size/2, 0, 2 * Math.PI, false);
         context.fillStyle = this.paletteColors[this.color];
+		
         context.fill();
         context.strokeStyle='white';
         context.strokeWidth=2;
@@ -634,7 +665,26 @@ customElements.define('jl-coloringbook', class extends HTMLElement
         context.moveTo(16,0);
         context.lineTo(16,32);
         context.stroke();
-        let url=canvas[0].toDataURL();
-        this.wrapper.css('cursor', `url(${url}) 16 16, pointer`);
+//        let url=canvas[0].toDataURL();
+		
+		
+								  
+		
+		
+		
+		if(size == 4 ){this.wrapper.css('cursor', `url(${"./icons/brush1.png"}) 2 58, auto`);}									  
+		if(size == 11){this.wrapper.css('cursor', `url(${"./icons/brush2.png"}) 7 55, auto`);}
+		if(size == 18){this.wrapper.css('cursor', `url(${"./icons/brush3.png"}) 10 52, auto`);}
+		if(size== 25){this.wrapper.css('cursor', `url(${"./icons/brush4.png"}) 12 45, auto`);}
+		if(size == 32){this.wrapper.css('cursor', `url(${"./icons/brush5.png"}) 15 45, auto`);}
+	   
+		if(size == 4 && context.fillStyle == "#ffffff"){this.wrapper.css('cursor', `url(${"./icons/eraser1.png"}) 2 58, auto`);}
+		if(size == 11 && context.fillStyle == "#ffffff"){this.wrapper.css('cursor', `url(${"./icons/eraser2.png"}) 7 45, auto`);}
+		if(size == 18 && context.fillStyle == "#ffffff"){this.wrapper.css('cursor', `url(${"./icons/eraser3.png"}) 10 40, auto`);}
+		if(size == 25 && context.fillStyle == "#ffffff"){this.wrapper.css('cursor', `url(${"./icons/eraser4.png"}) 15 40, auto`);}
+		if(size == 32 && context.fillStyle == "#ffffff"){this.wrapper.css('cursor', `url(${"./icons/eraser5.png"}) 19 30, auto`);}
+		
+		
+		
     }
 });
