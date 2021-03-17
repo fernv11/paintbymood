@@ -27,12 +27,27 @@
                 $("#play img").attr("src","./icons/play.svg");
             }
         }
+		
+
 		song.addEventListener('timeupdate',function(){ 
-            var position = song.currentTime / song.duration;
+			
+            
+			
             if(song.currentTime == song.duration){
+				
 				next();
+				
 			}	
         });
+
+//		song.addEventListener('timeupdate', (event) => {
+//		  console.log('The currentTime attribute has been updated. Again.');
+//		  var position = song.currentTime / song.duration;
+//            if(song.currentTime == song.duration){
+//				next();
+//			}	
+//		});
+		
         function next(){
             currentSong++;
             if(currentSong > 29){

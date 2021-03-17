@@ -29,7 +29,7 @@
             }
         }
 		song.addEventListener('timeupdate',function(){ 
-            var position = song.currentTime / song.duration;
+           
             if(song.currentTime == song.duration){
 				next();
 			}	
