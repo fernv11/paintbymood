@@ -160,7 +160,7 @@ body .logo{
 
 #aboutSection{
 	padding-top:45px;
-	padding-bottom: 30px;
+	padding-bottom: 35px;
 	font-size: 40px;
 	
 }
@@ -377,7 +377,7 @@ audio {
 
 
 a:link {
-  color: white;
+  color: black;
 }
 
 a:hover {
@@ -586,6 +586,12 @@ h2{
 
 
 
+.column :hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+
 
 footer {
   text-align: center;
@@ -693,27 +699,31 @@ footer {
 }
 
 
-.styleFoot p{
-	padding-top: 20px;
-	font-family: brandon-grotesque, sans-serif;
-	color: #6c62b5;
-	
-}
 
 a:link {
   text-decoration: none;
-  color:white;
+  color:#663399;
 }
 
 
 a:visited {
   text-decoration: none;
-  color:white;
+  color:#663399;
 }
 
 
 a:hover {
-  color: #6c62b5;
+  text-decoration-line: underline;
+}
+
+
+.styleFoot {
+	padding-top: 20px;
+	font-family: brandon-grotesque, sans-serif;
+	color: #6c62b5;
+	
+	
+	
 }
 
 
